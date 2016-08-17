@@ -1,0 +1,42 @@
+Se crea el host virtual. Se crea un archivo con el siguiente contenido en la ruta:
+/etc/apache2/sites-avaliable con el nombre cursodatatables.localhost.conf
+
+<VirtualHost *:80>
+    ServerName cursodatatables.localhost
+    DocumentRoot /home/fullstack/Desarrollo/http/CursoDataTables/web
+    <Directory /home/fullstack/Desarrollo/http/CursoDataTables/web>
+        AllowOverride None
+        Order Allow,Deny
+        Allow from All
+
+        <IfModule mod_rewrite.c>
+            Options -MultiViews
+            RewriteEngine On
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteRule ^(.*)$ app.php [QSA,L]
+        </IfModule>
+    </Directory>
+
+    # uncomment the following lines if you install assets as symlinks
+    # or run into problems when compiling LESS/Sass/CoffeScript assets
+    # <Directory /var/www/project>
+    #     Options FollowSymlinksiTurn
+    ErrorLog /home/fullstack/Desarrollo/http/CursoDataTables/var/logs/error.log
+    CustomLog /home/fullstack/Desarrollo/http/CursoDataTables/var/logs/access.log combined
+</VirtualHost>
+
+
+Luego  se ejecuta el comando sudo a2ensite cursodatatables.localhost.conf
+
+Con esto lo que hacemos es activar el nuevo host virtual para ser accedido como si fuera un sitio Web de Internet.
+
+Luego se dan los permisos necesarios en la carpeta del proyecto para que cargue la aplicación symfony en nuestro servidor de pruebas
+
+sudo setfacl -R sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx var/cache var/logs var/sessions/
+-m u:www-data:rwx -m u:`whoami`:rwx var/cache var/logs var/sessions/
+
+sudo setfacl -R sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx var/cache var/logs var/sessions/
+-m u:www-data:rwx -m u:`whoami`:rwx var/cache var/logs var/sessions/
+
+Y podemos proceder a cargar nuestro sitio configurado en el navegador con la siguiente direccion:
+http://cursodatatables.localhost
