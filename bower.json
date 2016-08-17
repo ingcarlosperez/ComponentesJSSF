@@ -14,5 +14,8 @@
     "src/AppBundle/Resources/lib",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "datatables": "^1.10.12"
+  }
 }
