@@ -12,3 +12,10 @@ php vendor/bin/mysql-workbench-schema-export --export=doctrine2-annotation senso
 
 Para crear los repositoryClass de las entidades creadas con MySQL Workbench
 php bin/console doctrine:generate:entities AppBundle
+
+
+Para instalar FOSRestBundle
+composer require friendsofsymfony/rest-bundle
+
+Para instalar JMSSerializer
+composer require jms/serializer-bundle
