@@ -1,0 +1,14 @@
+Comandos usados dentro del curso
+===============
+
+Para instalar MySQL Workbench Schema Exporter
+composer require --dev mysql-workbench-schema-exporter/mysql-workbench-schema-exporter
+
+Para instalar MySQL Workbench Exporter for Doctrine 2
+composer require --dev mysql-workbench-schema-exporter/doctrine2-exporter
+
+Para generar las entidades desde un modelo de datos creado con MySQLWorkBench
+php vendor/bin/mysql-workbench-schema-export --export=doctrine2-annotation sensor.mwb src/AppBundle/Entity/
+
+Para crear los repositoryClass de las entidades creadas con MySQL Workbench
+php bin/console doctrine:generate:entities AppBundle

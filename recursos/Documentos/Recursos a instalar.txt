@@ -1,0 +1,5 @@
+Recursos a instalar
+===============
+
+Para descargar MySQLWorkBench schema exporter.
+https://github.com/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter
