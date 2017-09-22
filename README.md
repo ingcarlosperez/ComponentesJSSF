@@ -1,4 +1,4 @@
-CursoDataTables
+Aprende a usar Componentes Javascript con PHP y Symfony
 ===============
 
-A Symfony project created on August 16, 2016, 8:17 pm.
+Archivos del curso "Aprende a usar Componentes Javascript con PHP y Symfony"
